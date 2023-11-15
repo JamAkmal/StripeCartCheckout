@@ -1,0 +1,18 @@
+@extends('shop')
+@section('content')
+<div class="row">
+    @foreach($books as $book)
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <img src="{{ asset('images') }}/{{ $book->image }}" class="card-img-top" alt="Book Cover">
+            <div class="card-body">
+                <h4 class="card-title">{{ $book->name }}</h4>
+                <p> {{ $book->author }}</p>
+                <p class="card-text"> <strong>Price: </strong> ${{ $book->price }}</p>
+                <p class="btn-holder"><a href="{{ route('addbook.to.cart', $book->id) }}" class="btn btn-outline-danger">Add to <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+@endsection
